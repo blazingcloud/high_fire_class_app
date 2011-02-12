@@ -1,0 +1,11 @@
+rails new class_app
+cd class_app
+vi Gemfile
+
+group :development, :test do
+   gem 'rspec-rails'
+end
+
+bundle
+rails generate rspec:install
+
