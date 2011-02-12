@@ -8,4 +8,4 @@ end
 
 bundle
 rails generate rspec:install
-
+rails g rspec:model person 
