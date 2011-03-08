@@ -1,5 +1,6 @@
 ClassApp::Application.routes.draw do
   resources :people
+  match "/hello" => 'messages#greeting', :as => 'greeting'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

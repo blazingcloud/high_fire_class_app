@@ -1,8 +1,7 @@
 <ul>
   <% if @person %>
-    <%  @person.errors.each do |attribute, message|  %>
+    <%  @person.errors.full_messages.each do |message|  %>
       <li> 
-      <%= attribute.to_s.split('_').join(' ').capitalize %> 
       <%= message %>
       </li>
     <% end %>

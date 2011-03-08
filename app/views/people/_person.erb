@@ -1,1 +1,4 @@
-<%= person.last_name %>, <%= person.first_name %>
+<%= div_for person do %>
+  <%= person.first_name %>
+  <%= person.last_name %>
+<% end %>
