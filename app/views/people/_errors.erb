@@ -1,0 +1,10 @@
+<ul>
+  <% if @person %>
+    <%  @person.errors.each do |attribute, message|  %>
+      <li> 
+      <%= attribute.to_s.split('_').join(' ').capitalize %> 
+      <%= message %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

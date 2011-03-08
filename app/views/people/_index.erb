@@ -1,0 +1,9 @@
+<ol class='index'>
+  <% people.each_with_index do |person,index| %>
+    <%= render(:partial => 'person_wrapper', 
+               :locals => {
+                  :count => index+1,
+                  :person => person}) %>
+  <%end%>
+</ol>
+

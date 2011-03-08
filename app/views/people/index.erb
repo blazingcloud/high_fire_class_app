@@ -1,7 +1,3 @@
 <%= render(:partial => 'errors')%>
-<%= form_for Person.new do |f|%>
-  <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
-  <%= f.submit 'CREATE'%>
-<% end %>
+<%= render(:partial => 'form')%>
 <%= render(:partial => 'index', :locals => {:people => @people}) %>

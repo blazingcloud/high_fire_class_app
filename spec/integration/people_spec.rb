@@ -16,8 +16,8 @@ describe "People Page :" do
 
     it "one must have first and last name" do
       within('.new_person') do
-        fill_in 'First Name', :with => 'Jona'
-        fill_in 'Last Name',  :with => 'Ark'
+        fill_in 'First name', :with => 'Jona'
+        fill_in 'Last name',  :with => 'Ark'
         click_button 'CREATE'
       end
     end
