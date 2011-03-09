@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+   
 describe "People Page :" do
 
   context "when creating a new person" do
@@ -10,6 +10,7 @@ describe "People Page :" do
       within('.new_person') do
         click_button 'CREATE'
       end
+      page.save_and_open_page
       page.should have_content("First name can't be blank")
       page.should have_content("Last name can't be blank")
     end
@@ -23,7 +24,6 @@ describe "People Page :" do
       page.should have_content('Jona Ark')
     end
   end
-
   context "with 3 people" do
     before do
       Person.create(:first_name => 'Grace', :last_name => 'Hopper')
