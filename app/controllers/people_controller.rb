@@ -6,6 +6,10 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
   end
+  
+  def show
+    @dishes = Person.find(params[:id])
+  end
 
   def create
     @person = Person.new(params[:person])

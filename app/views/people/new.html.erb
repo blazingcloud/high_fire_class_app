@@ -1,0 +1,12 @@
+NEW Person
+<% @person.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+<%= form_for(@person) do |f| %>
+  <%= :hello_jello.to_s.humanize %>
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.submit 'CREATE' %>
+<% end %>

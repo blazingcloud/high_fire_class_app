@@ -10,29 +10,30 @@ describe "People Page :" do
       within('.new_person') do
         click_button 'CREATE'
       end
-      page.save_and_open_page
       page.should have_content("First name can't be blank")
       page.should have_content("Last name can't be blank")
     end
 
     it "one must have first and last name" do
       within('.new_person') do
-        fill_in 'First name', :with => 'Jona'
+        fill_in 'First Name', :with => 'Jona'
         fill_in 'Last name',  :with => 'Ark'
         click_button 'CREATE'
       end
       page.should have_content('Jona Ark')
     end
   end
+
   context "with 3 people" do
     before do
       Person.create(:first_name => 'Grace', :last_name => 'Hopper')
       Person.create(:first_name => 'Anita', :last_name => 'Borg')
       Person.create(:first_name => 'Ada', :last_name => 'Lovelace')
+
       visit people_path # index
     end
 
-    it "displays Lastname, Firstname" do
+    it "displays Firstname Lastname" do
       page.save_and_open_page
       page.should have_content('Anita Borg')
       page.should have_content('Grace Hopper')
