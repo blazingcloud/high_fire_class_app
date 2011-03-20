@@ -8,9 +8,14 @@ describe "import people" do
     @data = []
     File.open(@filename, "w+") do |f|
       3.times do
-        name = {:first => Faker::Name.first_name, :last => Faker::Name.last_name}
+        first = Faker::Name.first_name
+        last = Faker::Name.last_name
+        email = "#{first}_#{last}@#{Faker::Internet.domain_name}" 
+        name = {:first => first,
+               :last => last,
+               :email => email}
         @data << name
-        f.puts "#{name[:first]}\t#{name[:last]}"
+        f.puts "#{first}\t#{last}\t#{email}"
       end
     end
     @person_count = Person.count
@@ -25,7 +30,9 @@ describe "import people" do
   it "creates records for the people that are in the file" do
     3.times do |n|
       name = @data[n]
-      p = Person.where(:first_name => name[:first], :last_name => name[:last]).first
+      p = Person.where(:first_name => name[:first],
+                       :last_name => name[:last],
+                       :email => name[:email]).first
       p.should_not be_nil
     end
   end
