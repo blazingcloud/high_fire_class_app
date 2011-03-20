@@ -10,7 +10,7 @@ describe "People Page :" do
       within('.new_person') do
         click_button 'CREATE'
       end
-      page.save_and_open_page
+      #page.save_and_open_page
       page.should have_content("First name can't be blank")
       page.should have_content("Last name can't be blank")
     end
@@ -34,7 +34,7 @@ describe "People Page :" do
     end
 
     it "displays Firstname Lastname" do
-      page.save_and_open_page
+      #page.save_and_open_page
       page.should have_content('Anita Borg')
       page.should have_content('Grace Hopper')
       page.should have_content('Ada Lovelace')

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @course.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @course.description %>
+</p>
+
+<ul>
+<% @course.assignments.order("due_on").each do |a| %>
+  <li><%= "#{a.due_on}: #{a.description}" %>
+<% end %>
+  
+</ul>
+<%=  link_to "Create a new assignment", new_course_assignment_path(@course) %>
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

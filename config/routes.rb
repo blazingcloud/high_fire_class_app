@@ -1,5 +1,9 @@
 ClassApp::Application.routes.draw do
-  resources :people
+  resources :courses do
+    resources :assignments
+  end
+
+  resources :people 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
