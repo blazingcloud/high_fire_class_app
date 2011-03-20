@@ -19,7 +19,11 @@
   </div>
   <div class="field">
     <%= f.label :assigned_on %><br />
-    <%= date_select @assignment, :assigned_on %>
+    <%= date_select :assignment, :assigned_on %>
+    
+  </div>  <div class="field">
+    <%= f.label :due_on %><br />
+    <%= date_select :assignment, :due_on %>
   </div>
   <div class="actions">
     <%= f.submit %>

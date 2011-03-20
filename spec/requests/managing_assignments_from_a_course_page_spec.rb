@@ -45,11 +45,23 @@ describe "Managing assignments from a course page" do
         before do
           @title = "In the mountains, you are beguiled by mysterious music" 
           fill_in "Description", :with => @title
+          
+          select "2010", :from => 'assignment_assigned_on_1i'
+          select "February", :from => "assignment_assigned_on_2i"
+          select "5", :from => "assignment_assigned_on_3i"          
+          
+          select "2011", :from => 'assignment_due_on_1i'
+          select "March", :from => "assignment_due_on_2i"
+          select "15", :from => "assignment_due_on_3i"
+          
           click_button "Create Assignment"
         end
 
         it "should create the assignment" do
-          Assignment.find_by_description(@title).should_not be_nil
+          a = Assignment.find_by_description(@title)
+          a.should_not be_nil
+          a.assigned_on.should == Date.civil(2010, 2, 5)
+          a.due_on.should == Date.civil(2011, 3, 15)
         end
 
         it "should display the course page with the new assignment" do
