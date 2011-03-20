@@ -1,2 +1,5 @@
-<%=render @people %>
-
+<ul>
+<% @people.each do |person| %>
+<li><%= link_to person.full_name, person %></li>
+<% end %>
+</ul>
