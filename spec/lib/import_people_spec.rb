@@ -19,8 +19,8 @@ describe "import people" do
       end
     end
     @person_count = Person.count
-    import_people(@filename)
-
+    @course = Course.create!(:name => "Sculpture")
+    import_people(@filename, @course)
   end
   
   it "creates the number of records as are in the file" do
@@ -30,7 +30,7 @@ describe "import people" do
   it "creates records for the people that are in the file" do
     3.times do |n|
       name = @data[n]
-      p = Person.where(:first_name => name[:first],
+      p = @course.people.where(:first_name => name[:first],
                        :last_name => name[:last],
                        :email => name[:email]).first
       p.should_not be_nil

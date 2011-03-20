@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @dishes = Person.find(params[:id])
+    @person = Person.find(params[:id])
   end
 
   def create
